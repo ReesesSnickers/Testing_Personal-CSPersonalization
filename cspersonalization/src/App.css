@@ -1,0 +1,68 @@
+.main_page{
+  border: 3px solid purple;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+.main_navbar{
+  flex: 0.75;
+  border: 3px solid black;
+  height: 75px;
+}
+
+.main_body{
+  flex: 5;
+  border: 3px solid black;
+  display: flex;
+}
+
+.main_leftside {
+  border: 3px solid black;
+  display: flex;
+  flex-grow: 1;
+}
+
+.main_content{
+  border: 3px solid black;
+  display: flex;
+  flex-grow: 3;
+}
+
+.main_rightside{
+  border: 3px solid black;
+  display: flex;
+  flex-grow: 1;
+}
+
+.main_footer {
+  flex: 1;
+  border: 3px solid black;
+  height: 100px;
+}
+
+.playground_container{
+  display: flex;
+  background-color: black;
+}
+
+.playground_optioncontainer{
+  background-color: white;
+  border: 1px solid black;
+  margin: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.playground_coloroption {
+  border-radius: 10px;
+  height: 25px;
+  width: 40px;
+  border: 1px solid black;
+  margin: 5px;
+}
