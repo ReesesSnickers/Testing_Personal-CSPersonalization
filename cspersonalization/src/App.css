@@ -46,6 +46,8 @@
 .playground_container{
   display: flex;
   background-color: black;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .playground_optioncontainer{
@@ -65,4 +67,10 @@
   width: 40px;
   border: 1px solid black;
   margin: 5px;
+}
+
+h1 {
+  color: white;
+  font-size: 45px;
+  padding-right: 25px;
 }

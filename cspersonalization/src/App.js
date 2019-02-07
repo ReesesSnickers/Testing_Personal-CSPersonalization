@@ -6,9 +6,9 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      color1: "#FFF",
-      color2: "#FFF",
-      color3: "#FFF"
+      color1: "#D9DCD6",
+      color2: "#3A7CA5",
+      color3: "#16425B"
     }
   }
 
@@ -31,24 +31,27 @@ class App extends Component {
     return (
       <div>
         <div className="playground_container">
-          <div className="playground_optioncontainer">
-            <input type="radio" name="color" value={colorPallet1} onChange={this.handleColorChoice} />
-            <div className="playground_coloroption" style={{backgroundColor: "#D9DCD6"}}/>
-            <div className="playground_coloroption" style={{backgroundColor: "#3A7CA5"}} />
-            <div className="playground_coloroption" style={{backgroundColor: "#16425B"}} />
+          <div style={{display: "flex", flexDirection: "row"}}>
+            <div className="playground_optioncontainer">
+              <input type="radio" name="color" value={colorPallet1} onChange={this.handleColorChoice} defaultChecked />
+              <div className="playground_coloroption" style={{backgroundColor: "#D9DCD6"}}/>
+              <div className="playground_coloroption" style={{backgroundColor: "#3A7CA5"}} />
+              <div className="playground_coloroption" style={{backgroundColor: "#16425B"}} />
+            </div>
+            <div className="playground_optioncontainer">
+              <input type="radio" name="color" value={colorPallet2} onChange={this.handleColorChoice} />
+              <div className="playground_coloroption" style={{backgroundColor: "#5F5AA2"}} />
+              <div className="playground_coloroption" style={{backgroundColor: "#355691"}} />
+              <div className="playground_coloroption" style={{backgroundColor: "#413F54"}} />
+            </div>
+            <div className="playground_optioncontainer">
+              <input type="radio" name="color" value={colorPallet3} onChange={this.handleColorChoice} />
+              <div className="playground_coloroption" style={{backgroundColor: "#98DFAF"}} />
+              <div className="playground_coloroption" style={{backgroundColor: "#DEEFB7"}} />
+              <div className="playground_coloroption" style={{backgroundColor: "#5FB49C"}} />
+            </div>
           </div>
-          <div className="playground_optioncontainer">
-            <input type="radio" name="color" value={colorPallet2} onChange={this.handleColorChoice} />
-            <div className="playground_coloroption" style={{backgroundColor: "#5F5AA2"}} />
-            <div className="playground_coloroption" style={{backgroundColor: "#355691"}} />
-            <div className="playground_coloroption" style={{backgroundColor: "#413F54"}} />
-          </div>
-          <div className="playground_optioncontainer">
-            <input type="radio" name="color" value={colorPallet3} onChange={this.handleColorChoice} />
-            <div className="playground_coloroption" style={{backgroundColor: "#98DFAF"}} />
-            <div className="playground_coloroption" style={{backgroundColor: "#DEEFB7"}} />
-            <div className="playground_coloroption" style={{backgroundColor: "#5FB49C"}} />
-          </div>
+          <h1>Theme Playground</h1>
         </div>
         <div className="main_page">
           <div className="main_navbar" style={{backgroundColor: this.state.color3}} >
