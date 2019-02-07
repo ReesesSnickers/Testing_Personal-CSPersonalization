@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { HuePicker}  from 'react-color';
 
 class App extends Component {
   constructor(props){
@@ -8,7 +9,14 @@ class App extends Component {
     this.state={
       color1: "#D9DCD6",
       color2: "#3A7CA5",
-      color3: "#16425B"
+      color3: "#16425B",
+      customColor1: "#FFF",
+      customColor2: "#FFF",
+      customColor3: "#FFF",
+      customColorString: "",
+      hueColor: "",
+      optionChoice: "",
+      displayPicker: "none"
     }
   }
 
@@ -23,8 +31,32 @@ class App extends Component {
     })
   }
 
+  handleHueChange = (color) => {
+    console.log(color.hex)
+    this.setState({
+      hueColor: color.hex,
+    })
+    this.setState({
+      [this.state.optionChoice]: this.state.hueColor
+    })
+  }
+
+  handleCustomToggle = (toggledValue) => {
+    this.setState({
+      optionChoice: toggledValue,
+      displayPicker: ""
+    })
+  }
+
+  handleCustomToggleOff = () => {
+    this.setState({
+      optionChoice: "",
+      displayPicker: "none",
+      customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3
+    })
+  }
+
   render() {
-    // let test = {color1: "#D9DCD6", color2: "#3A7CA5", color3: "#16425B"}
     const colorPallet1 = " #D9DCD6 #3A7CA5 #16425B"
     const colorPallet2 = " #5F5AA2 #355691 #413F54"
     const colorPallet3 = " #98DFAF #DEEFB7 #5FB49C"
@@ -64,6 +96,12 @@ class App extends Component {
               <div className="playground_coloroption" style={{backgroundColor: "#E63B2E"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#9B1D20"}} />
             </div>
+            <div className="playground_optioncontainer">
+              <input type="radio" name="color" value={this.state.customColorString} onChange={this.handleColorChoice} />
+              <div className="playground_coloroption" style={{backgroundColor: this.state.customColor1}} onClick={() => this.handleCustomToggle("customColor1")} ><p className="custom">+</p></div>
+              <div className="playground_coloroption" style={{backgroundColor: this.state.customColor2}} onClick={() => this.handleCustomToggle("customColor2")} ><p className="custom">+</p></div>
+              <div className="playground_coloroption" style={{backgroundColor: this.state.customColor3}} onClick={() => this.handleCustomToggle("customColor3")} ><p className="custom">+</p></div>
+            </div>
           </div>
           <h1>Theme Playground</h1>
         </div>
@@ -85,6 +123,11 @@ class App extends Component {
           <div className="main_footer" style={{backgroundColor: this.state.color3}} >
             <p>Footer</p>
           </div>
+        </div>
+        <div className="color_picker" style={{display: this.state.displayPicker}}>
+          <h2>Choose a color</h2>
+          <HuePicker color={ this.state.hueColor } onChange={ this.handleHueChange }/>
+          <button onClick={() => this.handleCustomToggleOff()}>Okay</button>
         </div>
       </div>
     );
