@@ -62,8 +62,6 @@ class App extends Component {
     const colorPallet3 = " #98DFAF #DEEFB7 #5FB49C"
     const colorPallet4 = " #F5EDF0 #886F68 #424C55"
     const colorPallet5 = " #E1E6E1 #E63B2E #9B1D20"
-    // if(document.getElementById("test").getAttribute("checked")){console.log('true')}
-    console.log(document.getElementsByName("color"))
     return (
       <div>
         <div className="playground_container">
