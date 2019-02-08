@@ -20,7 +20,6 @@ class App extends Component {
     }
   }
 
-
   handleColorChoice = (e) => {
     let colorObject = e.currentTarget.value
     colorObject = colorObject.split(' ')
@@ -32,7 +31,6 @@ class App extends Component {
   }
 
   handleHueChange = (color) => {
-    console.log(color.hex)
     this.setState({
       hueColor: color.hex,
     })
@@ -52,8 +50,10 @@ class App extends Component {
     this.setState({
       optionChoice: "",
       displayPicker: "none",
-      customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3
+      customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3,
+      hueColor: "#ff0000"
     })
+    setTimeout(() => { document.getElementById("test").click() }, 100);
   }
 
   render() {
@@ -62,42 +62,44 @@ class App extends Component {
     const colorPallet3 = " #98DFAF #DEEFB7 #5FB49C"
     const colorPallet4 = " #F5EDF0 #886F68 #424C55"
     const colorPallet5 = " #E1E6E1 #E63B2E #9B1D20"
+    // if(document.getElementById("test").getAttribute("checked")){console.log('true')}
+    console.log(document.getElementsByName("color"))
     return (
       <div>
         <div className="playground_container">
           <div style={{display: "flex", flexDirection: "row"}}>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={colorPallet1} onChange={this.handleColorChoice} defaultChecked />
+              <input type="radio" name="color" value={colorPallet1} onClick={this.handleColorChoice} defaultChecked />
               <div className="playground_coloroption" style={{backgroundColor: "#D9DCD6"}}/>
               <div className="playground_coloroption" style={{backgroundColor: "#3A7CA5"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#16425B"}} />
             </div>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={colorPallet2} onChange={this.handleColorChoice} />
+              <input type="radio" name="color" value={colorPallet2} onClick={this.handleColorChoice} />
               <div className="playground_coloroption" style={{backgroundColor: "#5F5AA2"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#355691"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#413F54"}} />
             </div>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={colorPallet3} onChange={this.handleColorChoice} />
+              <input type="radio" name="color" value={colorPallet3} onClick={this.handleColorChoice} />
               <div className="playground_coloroption" style={{backgroundColor: "#98DFAF"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#DEEFB7"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#5FB49C"}} />
             </div>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={colorPallet4} onChange={this.handleColorChoice} />
+              <input type="radio" name="color" value={colorPallet4} onClick={this.handleColorChoice} />
               <div className="playground_coloroption" style={{backgroundColor: "#F5EDF0"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#886F68"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#424C55"}} />
             </div>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={colorPallet5} onChange={this.handleColorChoice} />
+              <input type="radio" name="color" value={colorPallet5} onClick={this.handleColorChoice} />
               <div className="playground_coloroption" style={{backgroundColor: "#E1E6E1"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#E63B2E"}} />
               <div className="playground_coloroption" style={{backgroundColor: "#9B1D20"}} />
             </div>
             <div className="playground_optioncontainer">
-              <input type="radio" name="color" value={this.state.customColorString} onChange={this.handleColorChoice} />
+              <input type="radio" id="test" name="color" value={this.state.customColorString} onClick={this.handleColorChoice} />
               <div className="playground_coloroption" style={{backgroundColor: this.state.customColor1}} onClick={() => this.handleCustomToggle("customColor1")} ><p className="custom">+</p></div>
               <div className="playground_coloroption" style={{backgroundColor: this.state.customColor2}} onClick={() => this.handleCustomToggle("customColor2")} ><p className="custom">+</p></div>
               <div className="playground_coloroption" style={{backgroundColor: this.state.customColor3}} onClick={() => this.handleCustomToggle("customColor3")} ><p className="custom">+</p></div>
