@@ -37,6 +37,10 @@ class App extends Component {
     this.setState({
       [this.state.optionChoice]: this.state.hueColor
     })
+    this.setState({
+      customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3,
+    })
+    setTimeout(() => { document.getElementById("test").click() }, 100);
   }
 
   handleCustomToggle = (toggledValue) => {
@@ -50,7 +54,7 @@ class App extends Component {
     this.setState({
       optionChoice: "",
       displayPicker: "none",
-      customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3,
+      // customColorString: " " + this.state.customColor1 + " " + this.state.customColor2 + " " + this.state.customColor3,
       hueColor: "#ff0000"
     })
     setTimeout(() => { document.getElementById("test").click() }, 100);
